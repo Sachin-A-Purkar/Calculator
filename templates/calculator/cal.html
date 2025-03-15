@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href={% static "css/cal.css" %}>
+</head>
+<body>
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+            <a class="navbar-brand" href="#">WebSiteName</a>
+            </div>
+            <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="#">Page 1</a></li>
+            <li><a href="#">Page 2</a></li>
+            <li><a href="#">Page 3</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container-fluid cal">
+        <div class="container calculator">
+            <form method="GET">
+            <div class="row r1">
+                <div class="col-12 c1">
+                    <input type="text" name="expression" id="display1" value="{{ expression }}" class="display1">
+                    
+                </div>
+                <div class="col-12 c2">
+                    <input type="text" class="display2" name="" id="display2"  value="= {{ result }}" >
+                </div>
+            </div>
+            <div class="row r2">
+                        <div class="col-3 butc">
+                        <button type="button" onclick="clearDisplay()" class="but"> AC</button>
+                        <button type="button" onclick="appendCharacter('7')" class="butn"> 7</button>
+                        <button type="button" onclick="appendCharacter('4')" class="butn"> 4</button>
+                        <button type="button" onclick="appendCharacter('1')" class="butn"> 1</button>
+                        <button type="button" onclick="appendCharacter('0')" class="butn"> 0</button>
+                        </div>
+
+                        <div class="col-3 butc">
+                        <button type="button" onclick="backspace()" class="but">←</button>
+                        <button type="button" onclick="appendCharacter('8')" class="butn"> 8</button>
+                        <button type="button" onclick="appendCharacter('5')" class="butn"> 5</button>
+                        <button type="button" onclick="appendCharacter('2')" class="butn"> 2</button>
+                        <button type="button" onclick="appendCharacter('.')" class="but"> .</button>
+                        </div>
+
+                        <div class="col-3 butc">
+                        <button type="button" onclick="appendCharacter('%')" class="but"> %</button>
+                        <button type="button" onclick="appendCharacter('9')" class="butn"> 9</button>
+                        <button type="button" onclick="appendCharacter('6')" class="butn"> 6</button>
+                        <button type="button" onclick="appendCharacter('3')" class="butn"> 3</button>
+                        <button type="button" onclick="appendCharacter('$')" class="but"> *</button>
+                        </div>
+                        
+                        <div class="col-3 butc">
+                        <button type="button" onclick="appendCharacter('/')" class="but"> ÷ </button>
+                        <button type="button" onclick="appendCharacter('*')" class="but"> X</button>
+                        <button type="button" onclick="appendCharacter('-')" class="but"> -</button>
+                        <button type="button" onclick="appendCharacter('+')" class="but"> +</button>
+                        <button type="submit" name="calculate" class="but">=</button>
+
+                        </div>
+
+                </div>
+                
+            </form>
+        </div>
+    </div>
+    <script>
+        function clearDisplay(){
+            document.getElementById("display1").value="";
+            document.getElementById("display2").value=" 0 ";
+        }
+        function appendCharacter(char){
+            document.getElementById("display1").value += char;
+        }
+        function backspace() {
+            let display = document.getElementById("display1");
+            display.value = display.value.slice(0, -1);
+        }
+        
+    </script>
+</body>
+</html>
+
