@@ -1,0 +1,33 @@
+.bmim{
+    height: 100%;
+    width: 100%;
+    display: block;
+    justify-content: center;
+    align-items: center;
+}
+.bmi{
+    height: 500px;
+    width: 400px;
+    background-color: darkgrey;
+    border: 2px solid lavender;
+    padding-left: 30px;
+    font-size: 16px;
+}
+
+#in{
+    height: 30px;
+    width: 200px;
+    border-radius: 10px;
+
+}
+
+#rad{
+    height: 16px;
+    width: 16px;
+}
+
+#but{
+    height: 30px;
+    width: 150px;
+    background-color: greenyellow;
+}

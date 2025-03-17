@@ -1,0 +1,57 @@
+
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI Calculator</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="{% static 'css/bmi.css' %}">
+</head>
+<body>
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+            <a class="navbar-brand" href="#">WebSiteName</a>
+            </div>
+            <ul class="nav navbar-nav">
+            <li ><a href="{% url 'cal' %}">Home</a></li>
+            <li class="active"><a href="{% url 'bmi' %}">Bmi</a></li>
+            <li><a href="#">Page 2</a></li>
+            <li><a href="#">Page 3</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container-fluid bmim">
+        <div class="bmi">
+            <h1>BMI Calculator</h1>
+            <form method="GET">
+                {% csrf_token %}
+                
+                <label for="age">Age:</label>
+                <input type="number" name="age" id="in" required><br><br>
+
+                <label>Gender:</label>
+                <input type="radio" name="gender" value="Male"> Male
+                <input type="radio" name="gender" value="Female"> Female
+                <br><br>
+
+                <label for="height">Height (m):</label>
+                <input type="text" name="height" id="in" required><br><br>
+
+                <label for="weight">Weight (kg):</label>
+                <input type="text" name="weight" id="in" required><br><br>
+
+                <button type="submit" id="but">Calculate</button>
+            </form>
+            {% if result %}
+                <h3>Your BMI: {{ bmi }}</h3>
+                <p>Category: {{ result }}</p>
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>
