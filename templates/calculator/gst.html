@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="{% static 'css/gst.css' %}">
+    </head>
+    <body>
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                <a class="navbar-brand" href="#">Calculator &nbsp;'s</a>
+                </div>
+                <ul class="nav navbar-nav">
+                <li ><a href="{% url 'cal' %}">Home</a></li>
+                <li><a href="{% url 'bmi' %}">BMI</a></li>
+                <li class="active"><a href="<a href="{% url 'gst' %}">GST</a></li>
+                <li><a href="#">Page 3</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <div class="container-fluid gstm">
+            <div class="container gst">
+            <div class="row">
+            <center><h1 >GST Calculator</h1></center>
+                <div class="col inp">
+                    <form method="GET">
+                    <label for="Amount"> Original Amount : </label>
+                    <input type="text" name="amt" id="in"><br><br>
+                    <label for="Gst"> GST (%) : </label>
+                    <select value="gst" id="sel">
+                        <option >select</option>
+                        <option value="5">5%</option>
+                        <option value="12">12%</option>
+                        <option value="18">18%</option>
+                        <option value="28">28%</option>
+                    </select>
+                    <div class="but">Calculate</div>
+                </form>
+                </div>
+                <div class="col ans">
+                    
+                </div>
+            </div>
+                
+            </div>
+        </div>
+    </body>
+</html>

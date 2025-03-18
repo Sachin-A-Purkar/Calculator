@@ -16,7 +16,7 @@ def calculator_view(request):
     return render(request, "calculator/cal.html", {"result": result, "expression": expression})
 
 def bmi_view(request):
-    result = ""
+    result = None
     bmi = None  # Use None instead of an empty string
 
     try:
@@ -49,3 +49,8 @@ def bmi_view(request):
 
 
     return render(request, "calculator/bmi.html", {"bmi": bmi, "result": result})
+
+
+def gst_view(request):
+    
+    return render(request,"calculator/gst.html",{})

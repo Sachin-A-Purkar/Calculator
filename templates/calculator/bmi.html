@@ -15,18 +15,18 @@
     <nav class="navbar navbar-inverse">
         <div class="container-fluid">
             <div class="navbar-header">
-            <a class="navbar-brand" href="#">WebSiteName</a>
+            <a class="navbar-brand" href="#">Calculator &nbsp;'s</a>
             </div>
             <ul class="nav navbar-nav">
             <li ><a href="{% url 'cal' %}">Home</a></li>
-            <li class="active"><a href="{% url 'bmi' %}">Bmi</a></li>
-            <li><a href="#">Page 2</a></li>
+            <li class="active"><a href="{% url 'bmi' %}">BMI</a></li>
+            <li><a href="{% url 'gst' %}">GST </a></li>
             <li><a href="#">Page 3</a></li>
             </ul>
         </div>
     </nav>
     <div class="container-fluid bmim">
-        <div class="bmi">
+        <div class="container bmi">
             <h1>BMI Calculator</h1>
             <form method="GET">
                 {% csrf_token %}

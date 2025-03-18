@@ -1,0 +1,51 @@
+.gstm{
+    height: 100%;
+    width: 100%;
+}
+.gst{
+    height: 450px;
+    width: 1000px;
+    border: 1px solid cornflowerblue;
+    margin-top: 100px;
+}
+
+.inp{
+    height: 350px;
+    width: 490px;
+    float: left;
+    margin-top: 25px;
+}
+.ans{
+    height: 350px;
+    width: 490px;
+    background-color: yellow;
+    float: left;
+    margin-top: 25px;
+}
+
+#in{
+    height: 25px;
+    width: 200px;
+    border-radius: 5px;
+    margin-left: 25px;
+    margin-top: 50px;
+}
+
+label{
+    font-size: 20px;
+    margin-left: 25px;
+}
+
+#sel{
+    height: 25px;
+    width: 200px;
+    border-radius: 5px;
+    border:2px solid black;
+    margin-left: 105px;
+}
+.but{
+    height: 30px;
+    width: 200px;
+    background-color: yellow;
+    border-radius: 7px;
+}
