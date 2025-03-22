@@ -5,4 +5,5 @@ urlpatterns = [
     path('', views.calculator_view, name='cal'),
     path('bmi/', views.bmi_view, name='bmi'),
     path('gst/', views.gst_view, name='gst'),
+    path('area/', views.area_view, name='area'),
 ]

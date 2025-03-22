@@ -21,8 +21,8 @@
                 <ul class="nav navbar-nav">
                 <li ><a href="{% url 'cal' %}">Home</a></li>
                 <li><a href="{% url 'bmi' %}">BMI</a></li>
-                <li class="active"><a href="<a href="{% url 'gst' %}">GST</a></li>
-                <li><a href="#">Page 3</a></li>
+                <li class="active"><a href="{% url 'gst' %}">GST</a></li>
+                <li><a href="{% url 'area' %}">AREA</a></li>
                 </ul>
             </div>
         </nav>
@@ -34,20 +34,29 @@
                 <div class="col inp">
                     <form method="GET">
                     <label for="Amount"> Original Amount : </label>
-                    <input type="text" name="amt" id="in"><br><br>
+                    <input type="text" name="amt" id="in" ><br><br>
                     <label for="Gst"> GST (%) : </label>
-                    <select value="gst" id="sel">
-                        <option >select</option>
+                    <select name="gst" id="sel">
+                        <option value="0">select</option>
                         <option value="5">5%</option>
                         <option value="12">12%</option>
                         <option value="18">18%</option>
                         <option value="28">28%</option>
-                    </select>
-                    <div class="but">Calculate</div>
+                    </select><br>
+                    <button id="butg"> Calculate</button>
                 </form>
+                
                 </div>
                 <div class="col ans">
-                    
+                    <div class="card">
+                        
+                            <h3 class="headings">Amount : {{amount}} /-</h3>
+                            <h3 class="headings">Cgst : {{cgst}}0 /-</h3>
+                            <h3 class="headings">Sgst : {{sgst}}0 /-</h3>
+                            <h3 class="headings">Gst : {{tgst}}0 /-</h3>
+                            <h2 class="headings">Total Amount : {{tot}}0  /- </h2>
+                        
+                    </div>
                 </div>
             </div>
                 

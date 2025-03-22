@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Area Calculator</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="{% static 'css/area.css' %}">
+
+        <style>
+            /* Hide all sections initially */
+            .section {
+                display: none;
+                padding: 50px 20px;
+            }
+            
+            /* Show only the first section by default */
+            .section.active {
+                display: block;
+            }
+
+            /* Small Navigation */
+            .small-nav {
+                background-color: #222;
+                padding: 10px;
+                text-align: center;
+                position: sticky;
+                top: 0;
+                z-index: 1000;
+            }
+            .small-nav a {
+                color: white;
+                margin: 10px;
+                padding: 8px 15px;
+                text-decoration: none;
+                border-radius: 5px;
+                transition: 0.3s;
+                display: inline-block;
+                cursor: pointer;
+            }
+            .small-nav a:hover, .small-nav a.active {
+                background-color: #575757;
+            }
+        </style>
+    </head>
+    <body>
+        <!-- Main Navigation -->
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#">Calculator &nbsp;'s</a>
+                </div>
+                <ul class="nav navbar-nav">
+                    <li><a href="{% url 'cal' %}">HOME</a></li>
+                    <li><a href="{% url 'bmi' %}">BMI</a></li>
+                    <li><a href="{% url 'gst' %}">GST</a></li>
+                    <li class="active"><a href="{% url 'area' %}">AREA</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- Small Secondary Navigation -->
+        <div class="small-nav">
+            <a class="tab-link active" data-section="rectangle">Rectangle</a>
+            <a class="tab-link" data-section="circle">Circle</a>
+            <a class="tab-link" data-section="triangle">Triangle</a>
+            <a class="tab-link" data-section="parallelogram">Parallelogram</a>
+            <a class="tab-link" data-section="trapezoid">Trapezoid</a>
+        </div>
+
+        <div class="container-fluid">
+            <!-- Rectangle Section -->
+            <div class="section active" id="rectangle">
+                <h1 class="heading">Rectangle</h1>
+                <div class="card">
+                    <label for="length">Length (L) :</label>
+                    <input type="text" name="length" id="in" required> 
+                    <select name="type" id="drop">
+                        <option value="foot">Foot</option>
+                        <option value="Centimeter">Centimeter</option>
+                        <option value="Meter">Meter</option>
+                    </select><br> <br>
+                    <label for="width">Width (W) :</label>
+                    <input type="text" name="width" id="in" required>
+                    <select name="type" id="drop">
+                        <option value="foot">Foot</option>
+                        <option value="Centimeter">Centimeter</option>
+                        <option value="Meter">Meter</option>
+                    </select><br> 
+                    <button type="submit" id="but">Calculate</button>
+                    <button type="reset" id="but">Clear</button>
+                </div>
+            </div>
+
+            <!-- Circle Section -->
+            <div class="section" id="circle">
+                <h1 class="heading">Circle</h1>
+                <div class="card">
+                    <!-- Circle Content -->
+                </div>
+            </div>
+
+            <!-- Triangle Section -->
+            <div class="section" id="triangle">
+                <h1 class="heading">Triangle</h1>
+                <div class="card">
+                    <!-- Triangle Content -->
+                </div>
+            </div>
+
+            <!-- Parallelogram Section -->
+            <div class="section" id="parallelogram">
+                <h1 class="heading">Parallelogram</h1>
+                <div class="card">
+                    <!-- Parallelogram Content -->
+                </div>
+            </div>
+
+            <!-- Trapezoid Section -->
+            <div class="section" id="trapezoid">
+                <h1 class="heading">Trapezoid</h1>
+                <div class="card">
+                    <!-- Trapezoid Content -->
+                </div>
+            </div>
+        </div>
+
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                let tabLinks = document.querySelectorAll(".tab-link");
+                let sections = document.querySelectorAll(".section");
+
+                tabLinks.forEach(link => {
+                    link.addEventListener("click", function () {
+                        let targetId = this.getAttribute("data-section");
+
+                        // Hide all sections
+                        sections.forEach(section => {
+                            section.classList.remove("active");
+                        });
+
+                        // Show the selected section
+                        document.getElementById(targetId).classList.add("active");
+
+                        // Remove active class from all links and add to clicked one
+                        tabLinks.forEach(l => l.classList.remove("active"));
+                        this.classList.add("active");
+                    });
+                });
+            });
+        </script>
+    </body>
+</html>

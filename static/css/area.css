@@ -1,0 +1,37 @@
+
+.card{
+    height: 200px;
+    width: 600px;
+    border: 1px solid black;
+    margin-left: 70px;
+    background-color: lightgray;
+}
+
+.heading{
+    margin-left: 70px;
+    color: #003366;
+}
+
+label{
+    font-weight: 500;
+    font-size: 18px;
+    margin-left: 30px;
+}
+
+#in{
+    height:28px ;
+    width: 200px;
+}
+
+#but{
+    height: 30px;
+    width: 120px;
+    margin-left: 30px;
+    margin-top: 15px;
+}
+
+#drop{
+    height: 28px;
+    width: 100px;
+    margin-left: 20px;
+}

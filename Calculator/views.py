@@ -52,5 +52,52 @@ def bmi_view(request):
 
 
 def gst_view(request):
+    tot = 0
+    tgst = 0
+    cgst = 0
+    sgst = 0
+    amount=0
+    msg = None
+
+    try:
+        amt = request.GET.get("amt", "").strip()
+        gs = request.GET.get("gst", "").strip()
+
+        if amt and gs:
+            amount = int(amt)
+            gst = int(gs)
+
+            if amount > 200:
+                if gst > 0:  # Prevent division by zero
+                    tgst = (amount * gst) / 100
+                    tot = amount+tgst  # Total GST applied
+                    cgst = tgst / 2  # CGST is half of total GST
+                    sgst = tgst / 2  # SGST is the other half
+                else:
+                    msg = "Enter a valid GST percentage."
+            else:
+                msg = "Enter an amount greater than 200."
+        else:
+            msg = "Please enter valid amount and GST percentage."
+
+    except ValueError:  # Handles invalid input
+        msg = "Invalid input. Please enter valid numbers."
+
+    return render(request, "calculator/gst.html", {
+        "amount":amount,
+        "tot": tot,
+        "tgst":tgst,
+        "cgst": cgst,
+        "sgst": sgst,
+        "msg": msg
+    })
+
+
+def area_view(request):
+    len=0
+    wid=0
     
-    return render(request,"calculator/gst.html",{})
+    d    
+    return render(request,"calculator/area.html",{
+        
+    })
